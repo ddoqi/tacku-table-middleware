@@ -12,9 +12,7 @@ export async function middleware(request: NextRequest) {
 
   const snap = await getDoc(doc(dbService, "recipe", id));
   if (snap.exists()) {
-    return NextResponse.redirect(
-      new URL(`/detailRecipePage/${id}`, request.url)
-    );
+    return;
   } else {
     return NextResponse.redirect(new URL("/deletePage", request.url));
   }
