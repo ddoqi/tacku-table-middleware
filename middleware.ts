@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { doc, getDoc } from "firebase/firestore";
