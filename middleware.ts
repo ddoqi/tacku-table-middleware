@@ -12,7 +12,9 @@ export async function middleware(request: NextRequest) {
 
   const snap = await getDoc(doc(dbService, "recipe", id));
   if (snap.exists()) {
-    return;
+    return NextResponse.redirect(
+      new URL(`/detailRecipePage/${id}`, request.url)
+    );
   } else {
     return NextResponse.redirect(new URL("/deletePage", request.url));
   }
@@ -20,5 +22,5 @@ export async function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: "https://tacku-table-middleware.vercel.app/detailRecipePage/:path*",
+  matcher: "/detailRecipePage/:path*",
 };
